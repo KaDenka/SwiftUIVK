@@ -35,7 +35,7 @@ struct FriendCell: View {
             .resizable()
             .frame(width: 50, height: 50)
             .cornerRadius(40)
-            .shadow(color: .black, radius: 5, x: 3, y: 3)
+            .modifier(ImageModifier(imageCornerRadius: 40, shadowColor: .black, shadowRadius: 5, x: 3, y: 3))
             
         VStack(alignment: .leading) {
             Text("\(friend.firstName) \(friend.lastName)")
