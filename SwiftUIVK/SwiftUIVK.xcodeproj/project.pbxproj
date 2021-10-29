@@ -17,6 +17,7 @@
 		CAC9C4A0272C4A3000DB2965 /* SessionSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9C49F272C4A3000DB2965 /* SessionSingletone.swift */; };
 		CAC9C4A2272C54F800DB2965 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9C4A1272C54F800DB2965 /* Group.swift */; };
 		CAC9C4A4272C57FB00DB2965 /* ImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9C4A3272C57FB00DB2965 /* ImageModifier.swift */; };
+		CAC9C4A6272C5E5300DB2965 /* ImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9C4A5272C5E5300DB2965 /* ImageBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		CAC9C49F272C4A3000DB2965 /* SessionSingletone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSingletone.swift; sourceTree = "<group>"; };
 		CAC9C4A1272C54F800DB2965 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		CAC9C4A3272C57FB00DB2965 /* ImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModifier.swift; sourceTree = "<group>"; };
+		CAC9C4A5272C5E5300DB2965 /* ImageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				CAC9C49F272C4A3000DB2965 /* SessionSingletone.swift */,
 				CAC9C4A3272C57FB00DB2965 /* ImageModifier.swift */,
+				CAC9C4A5272C5E5300DB2965 /* ImageBuilder.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				CAC9C4A2272C54F800DB2965 /* Group.swift in Sources */,
 				CAC9C495272C412100DB2965 /* FriendsView.swift in Sources */,
 				CA36D49727272A5900596D2B /* ContentView.swift in Sources */,
+				CAC9C4A6272C5E5300DB2965 /* ImageBuilder.swift in Sources */,
 				CAC9C4A0272C4A3000DB2965 /* SessionSingletone.swift in Sources */,
 				CA36D49527272A5900596D2B /* SwiftUIVKApp.swift in Sources */,
 				CAC9C498272C447100DB2965 /* Friend.swift in Sources */,
