@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NewsView: View {
     var body: some View {
-        Text("News View under construction")
+        Text("News View is under construction")
     }
 }
 

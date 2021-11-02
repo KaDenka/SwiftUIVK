@@ -9,13 +9,19 @@ import SwiftUI
 
 struct FriendsView: View {
     @State var friends: [Friend] = SessionSingletone.shared.friends
+    @State private var shouldShowPhotoCollection = false
     var body: some View {
         
         NavigationView {
             List(friends) { friend in
-                FriendCell(friend: friend)
+                FriendCell(friend: friend, isPhotoButtonSelected: $shouldShowPhotoCollection)
             }.navigationBarTitle(Text("Friends"))
+            
+            NavigationLink(destination: PhotoCollectionView(), isActive: $shouldShowPhotoCollection) {
+                EmptyView()
+            }
         }
+        
         
     }
 }
@@ -29,7 +35,10 @@ struct FriendsView_Previews: PreviewProvider {
 
 struct FriendCell: View {
     let friend: Friend
+    @Binding var isPhotoButtonSelected: Bool
+    
     var body: some View {
+        
         HStack {
             ImageBuilder {
                 Image(uiImage: friend.photo50)
@@ -43,6 +52,17 @@ struct FriendCell: View {
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }.padding(.leading, 30)
+            
+            
+            Button {
+                isPhotoButtonSelected = true
+            } label: {
+                Text("Photo")
+                    .font(.subheadline)
+                    .foregroundColor(.blue)
+                    .padding(.leading, 30)
+                
+            }
         }
     }
 }
