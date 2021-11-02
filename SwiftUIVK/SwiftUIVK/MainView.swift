@@ -9,9 +9,28 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-            NavigationView {
-                GroupsView()
-            }
+        TabView {
+            FriendsView()
+                .padding()
+                .tabItem {
+                    Label("Friends", systemImage: "person.3")
+                }
+                .tag(1)
+            
+            GroupsView()
+                .padding()
+                .tabItem {
+                    Label("Groups", systemImage: "squares.below.rectangle")
+                }
+                .tag(2)
+            
+            NewsView()
+                .padding()
+                .tabItem {
+                    Label("News", systemImage: "list.bullet")
+                        .tag(3)
+                }
+        }
     }
 }
 
