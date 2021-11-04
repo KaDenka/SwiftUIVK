@@ -24,4 +24,7 @@ final class SessionSingletone {
     
     ]
     
+    var token: String = ""
+    var userID: String = ""
+    
 }
