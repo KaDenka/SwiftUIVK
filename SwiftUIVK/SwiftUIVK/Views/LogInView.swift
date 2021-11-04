@@ -11,7 +11,7 @@ struct LogInView: View {
     @State private var login = ""
     @State private var password = ""
     @State private var shouldShowLogo = true
-    @State private var showIncorrectCredentialsWarnind = false
+    @State private var showIncorrectCredentialsWarning = false
     
     @Binding var isUserLoggedIn: Bool
     
@@ -66,7 +66,7 @@ struct LogInView: View {
                         .padding(.bottom, 30)
                         .disabled(login.isEmpty || password.isEmpty)
                         .buttonStyle(.plain)
-                }.alert(isPresented: $showIncorrectCredentialsWarnind, content: { Alert(title: Text("Error"), message: Text("Incorrent Login/Password was entered"))
+                }.alert(isPresented: $showIncorrectCredentialsWarning, content: { Alert(title: Text("Error"), message: Text("Incorrent Login/Password was entered"))
                 })
             }
         }
@@ -75,7 +75,7 @@ struct LogInView: View {
         if login == "Foo" && password == "bar" {
            isUserLoggedIn = true
         } else {
-            showIncorrectCredentialsWarnind = true
+            showIncorrectCredentialsWarning = true
         }
         password = ""
     }

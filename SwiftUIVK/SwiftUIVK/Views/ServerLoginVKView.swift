@@ -1,18 +1,24 @@
 //  ServerLoginVKView.swift
-//  SwiftUI-Course
 //
-//  Created by andrey.antropov on 14.10.2021.
+//  Created by Denis Kazarin on 25.10.2021.
 //
 import SwiftUI
 import WebKit
 
 struct ServerLoginVKView: UIViewRepresentable {
     
+    @Binding var userLogIned: Bool
+    
+    
     fileprivate let navigationDelegate = WebViewNavigationDelegate()
+    
+    
+   
     
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
         webView.navigationDelegate = navigationDelegate
+        userLogIned = false
         return webView
     }
     
@@ -20,6 +26,7 @@ struct ServerLoginVKView: UIViewRepresentable {
         if let request = buildAuthRequest() {
             uiView.load(request)
         }
+        
     }
     
     private func buildAuthRequest() -> URLRequest? {
@@ -41,6 +48,11 @@ struct ServerLoginVKView: UIViewRepresentable {
 }
 
 class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
+     
+    
+    
+    
+   
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         guard let url = navigationResponse.response.url,
@@ -70,10 +82,11 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
             return
         }
         
+        
         SessionSingletone.shared.token = token
         SessionSingletone.shared.userID = userIdString
         
-        
         decisionHandler(.cancel)
     }
+        
 }

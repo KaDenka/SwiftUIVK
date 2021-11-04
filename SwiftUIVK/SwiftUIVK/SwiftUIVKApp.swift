@@ -10,8 +10,8 @@ import SwiftUI
 @main
 struct SwiftUIVKApp: App {
     var body: some Scene {
-        WindowGroup<ServerLoginVKView> {
-            ServerLoginVKView()
+        WindowGroup<ContentView> {
+            ContentView()
         }
     }
 }
