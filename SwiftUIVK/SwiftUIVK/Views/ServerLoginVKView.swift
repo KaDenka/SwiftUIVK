@@ -7,8 +7,6 @@ import WebKit
 
 struct ServerLoginVKView: UIViewRepresentable {
     
-    @Binding var userLogIned: Bool
-    
     
     fileprivate let navigationDelegate = WebViewNavigationDelegate()
     
@@ -18,7 +16,6 @@ struct ServerLoginVKView: UIViewRepresentable {
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
         webView.navigationDelegate = navigationDelegate
-        userLogIned = false
         return webView
     }
     
@@ -35,12 +32,12 @@ struct ServerLoginVKView: UIViewRepresentable {
         components.host = "oauth.vk.com"
         components.path = "/authorize"
         components.queryItems = [
-            URLQueryItem(name: "client_id", value: "7993077"),
-            URLQueryItem(name: "scope", value: "262150"),
+            URLQueryItem(name: "client_id", value: "7996248"),
+            URLQueryItem(name: "scope", value: "friends,photos,wall,offline,groups"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "response_type", value: "token"),
-            URLQueryItem(name: "v", value: "5.130")
+            URLQueryItem(name: "v", value: "5.131")
         ]
         
         return components.url.map { URLRequest(url: $0) }
@@ -85,6 +82,7 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         
         SessionSingletone.shared.token = token
         SessionSingletone.shared.userID = userIdString
+        SessionSingletone.shared.logedIn = true
         
         decisionHandler(.cancel)
     }

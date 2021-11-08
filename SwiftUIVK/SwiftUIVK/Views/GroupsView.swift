@@ -6,17 +6,29 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct GroupsView: View {
     
-    @State var groups: [Group] = SessionSingletone.shared.groups
+    @ObservedObject var session = SessionSingletone.shared
+    
+    private let APIRequest = VKAPIService()
+    
+  
     
     var body: some View {
         
         NavigationView {
-            List(groups) { group in
+            List(session.groups) { group in
                 GroupCell(group: group)
             }.navigationBarTitle(Text("User Groups"))
+        }
+        
+//MARK: Проверка работоспособности запросов
+        
+        .onAppear {
+            APIRequest.groupsListRequest()
+            
         }
         
     }
@@ -34,17 +46,23 @@ struct GroupCell: View {
     var body: some View {
         HStack {
             ImageBuilder {
-                Image(uiImage: group.groupIcon)
+                Image(uiImage: ImageLoader().getImage(group.photo50))
             }
             
             VStack(alignment: .leading) {
-                Text("\(group.groupName)")
+                Text("\(group.name)")
                     .font(.subheadline)
                     .foregroundColor(.black)
-                Text("\(group.groupDescription)")
+                Text("\(group.screenName)")
                     .font(.subheadline)
                     .foregroundColor(.gray)
-            }.padding(.leading, 30)
+                Text("\(group.itemDescription)")
+                    .font(.system(size: 14))
+                    .foregroundColor(.black)
+                    .lineLimit(2)
+            }
+            .padding(.leading, 30)
+            
         }
     }
 }

@@ -26,6 +26,8 @@
 		CAC9C4A2272C54F800DB2965 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9C4A1272C54F800DB2965 /* Group.swift */; };
 		CAC9C4A4272C57FB00DB2965 /* ImageModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9C4A3272C57FB00DB2965 /* ImageModifier.swift */; };
 		CAC9C4A6272C5E5300DB2965 /* ImageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC9C4A5272C5E5300DB2965 /* ImageBuilder.swift */; };
+		CADA169E2739347A00CDEF12 /* VKAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADA169D2739347A00CDEF12 /* VKAPIService.swift */; };
+		CADA16A02739599400CDEF12 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADA169F2739599400CDEF12 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		CAC9C4A1272C54F800DB2965 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		CAC9C4A3272C57FB00DB2965 /* ImageModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModifier.swift; sourceTree = "<group>"; };
 		CAC9C4A5272C5E5300DB2965 /* ImageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBuilder.swift; sourceTree = "<group>"; };
+		CADA169D2739347A00CDEF12 /* VKAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAPIService.swift; sourceTree = "<group>"; };
+		CADA169F2739599400CDEF12 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		CA8E2D6D2731BCB100827917 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CADA169D2739347A00CDEF12 /* VKAPIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				CAC9C49F272C4A3000DB2965 /* SessionSingletone.swift */,
 				CAC9C4A3272C57FB00DB2965 /* ImageModifier.swift */,
 				CAC9C4A5272C5E5300DB2965 /* ImageBuilder.swift */,
+				CADA169F2739599400CDEF12 /* ImageLoader.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -227,6 +233,7 @@
 				CAC9C495272C412100DB2965 /* FriendsView.swift in Sources */,
 				CA93ABED273420F6002AE08F /* ServerLoginVKView.swift in Sources */,
 				CA36D49727272A5900596D2B /* ContentView.swift in Sources */,
+				CADA16A02739599400CDEF12 /* ImageLoader.swift in Sources */,
 				CAC9C4A6272C5E5300DB2965 /* ImageBuilder.swift in Sources */,
 				CAC9C4A0272C4A3000DB2965 /* SessionSingletone.swift in Sources */,
 				CA8492A927317806002FC752 /* MainView.swift in Sources */,
@@ -234,6 +241,7 @@
 				CA8492AD2731840D002FC752 /* NewsView.swift in Sources */,
 				CAC9C498272C447100DB2965 /* Friend.swift in Sources */,
 				CA8492AF27318671002FC752 /* PhotoCollectionView.swift in Sources */,
+				CADA169E2739347A00CDEF12 /* VKAPIService.swift in Sources */,
 				CAC9C49D272C49C000DB2965 /* GroupsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var shouldShowMainView = false
+@ObservedObject private var session = SessionSingletone.shared
     
     var body: some View {
         NavigationView {
             HStack {
-                ServerLoginVKView(userLogIned: $shouldShowMainView)
-                NavigationLink(destination: MainView(), isActive: $shouldShowMainView) {
+                ServerLoginVKView()
+                NavigationLink(destination: MainView(), isActive: $session.logedIn) {
                     EmptyView()
                 }
             }

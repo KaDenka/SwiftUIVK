@@ -7,24 +7,19 @@
 
 import Foundation
 import UIKit
+import SwiftUI
+import Combine
 
-final class SessionSingletone {
-    static var shared = SessionSingletone()
+final class SessionSingletone: ObservableObject {
+    
+    static let shared = SessionSingletone()
     
     private init() {}
     
-    var friends = [
-        Friend(firstName: "Ksenia", lastName: "Kazarina", id: 22, photo50: UIImage(named: "ksenia")!),
-        Friend(firstName: "Dmitry", lastName: "Sorokin", id: 333, photo50: UIImage(named: "dmitry")!)
-    ]
-    
-    var groups = [
-        Group(groupName: "NHL", groupDescription: "Open group", groupIcon: UIImage(named: "nhl")!),
-        Group(groupName: "Toronto Maple Leafs", groupDescription: "Private group for funs only", groupIcon: UIImage(named: "toronto")!)
-    
-    ]
-    
-    var token: String = ""
-    var userID: String = ""
+    @Published var friends = [Friend]()
+    @Published var groups = [Group]()
+    @Published var token: String = ""
+    @Published var userID: String = ""
+    @Published var logedIn: Bool = false
    
 }
