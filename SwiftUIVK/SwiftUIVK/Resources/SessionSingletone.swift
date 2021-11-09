@@ -18,6 +18,8 @@ final class SessionSingletone: ObservableObject {
     
     @Published var friends = [Friend]()
     @Published var groups = [Group]()
+    @Published var photos = [Photo]()
+    @Published var news = [ResponseItem]()
     @Published var token: String = ""
     @Published var userID: String = ""
     @Published var logedIn: Bool = false

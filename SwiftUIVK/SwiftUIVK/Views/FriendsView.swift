@@ -61,7 +61,7 @@ struct FriendCell: View {
                 Text("\(friend.firstName) \(friend.lastName)")
                     .font(.subheadline)
                     .foregroundColor(.black)
-                Text("\(friend.id)")
+                Text("id: \(String(friend.id))")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }.padding(.leading, 30)
@@ -70,11 +70,10 @@ struct FriendCell: View {
             Button {
                 isPhotoButtonSelected = true
             } label: {
-                Text("Photo")
+                Text("")
                     .font(.subheadline)
                     .foregroundColor(.blue)
                     .padding(.leading, 30)
-                
             }
         }
     }

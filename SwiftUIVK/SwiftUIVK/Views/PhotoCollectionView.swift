@@ -6,10 +6,42 @@
 //
 
 import SwiftUI
+import ASCollectionView
+
 
 struct PhotoCollectionView: View {
+    
+    //@ObservedObject var session = SessionSingletone.shared
+    
+    private var APIRequest = VKAPIService()
+    
+    private var UIPhotos = ImageLoader().getPhotoCollection(SessionSingletone.shared.photos)
+    
+    
     var body: some View {
-        Text("Photo Collection is inder construction")
+        
+        NavigationView {
+            
+            Text("Sorry, it's under construction now!")
+//            List(UIPhotos) { photo in
+//                PhotoCell(photo: photo)
+//            }
+        .navigationBarTitle(Text("Photos"))
+        }
+    }
+    
+}
+
+
+struct PhotoCell: View {
+    
+    let photo: UIImage
+    
+    var body: some View {
+        
+        HStack {
+            Image(uiImage: photo)
+        }
     }
 }
 
