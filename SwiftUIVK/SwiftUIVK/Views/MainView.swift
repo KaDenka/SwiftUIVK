@@ -30,7 +30,7 @@ struct MainView: View {
                     Label("News", systemImage: "list.bullet")
                         .tag(3)
                 }
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 }
 

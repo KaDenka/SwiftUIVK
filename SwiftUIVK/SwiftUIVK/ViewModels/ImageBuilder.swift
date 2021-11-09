@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ImageBuilder: View {
+    
     let content: Image
     
     init(@ViewBuilder content: () -> Image) {

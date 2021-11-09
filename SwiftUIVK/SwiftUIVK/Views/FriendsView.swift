@@ -8,18 +8,29 @@
 import SwiftUI
 
 struct FriendsView: View {
-    @State var friends: [Friend] = SessionSingletone.shared.friends
+    
+    @ObservedObject var session = SessionSingletone.shared
+    
     @State private var shouldShowPhotoCollection = false
+    
+    private var APIRequest = VKAPIService()
+    
     var body: some View {
         
         NavigationView {
-            List(friends) { friend in
+            List(session.friends) { friend in
                 FriendCell(friend: friend, isPhotoButtonSelected: $shouldShowPhotoCollection)
             }.navigationBarTitle(Text("Friends"))
             
             NavigationLink(destination: PhotoCollectionView(), isActive: $shouldShowPhotoCollection) {
                 EmptyView()
             }
+        }
+        
+//MARK: Проверка работоспособности запроса
+        
+        .onAppear {
+          APIRequest.friendsListRequest()
         }
         
         
@@ -34,21 +45,23 @@ struct FriendsView_Previews: PreviewProvider {
 
 
 struct FriendCell: View {
+    
     let friend: Friend
+    
     @Binding var isPhotoButtonSelected: Bool
     
     var body: some View {
         
         HStack {
             ImageBuilder {
-                Image(uiImage: friend.photo50)
+                Image(uiImage: ImageLoader().getImage(friend.photo50))
             }
             
             VStack(alignment: .leading) {
                 Text("\(friend.firstName) \(friend.lastName)")
                     .font(.subheadline)
                     .foregroundColor(.black)
-                Text("\(friend.id)")
+                Text("id: \(String(friend.id))")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }.padding(.leading, 30)
@@ -57,11 +70,10 @@ struct FriendCell: View {
             Button {
                 isPhotoButtonSelected = true
             } label: {
-                Text("Photo")
+                Text("")
                     .font(.subheadline)
                     .foregroundColor(.blue)
                     .padding(.leading, 30)
-                
             }
         }
     }
