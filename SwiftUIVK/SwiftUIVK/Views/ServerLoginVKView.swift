@@ -75,6 +75,7 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         guard let authTokenResponse = authParams["access_token"], let authUserIdResponse = authParams["user_id"] else {return}
         
         SessionSingletone.shared.token = authTokenResponse
+        print("TOKEN TOKEN TOKEN: \(SessionSingletone.shared.token)")
         SessionSingletone.shared.userID = authUserIdResponse
         SessionSingletone.shared.logedIn = true
         
