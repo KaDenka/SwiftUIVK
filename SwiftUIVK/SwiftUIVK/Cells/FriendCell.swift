@@ -23,7 +23,7 @@ struct FriendCell: View {
                 Image(uiImage: ImageLoader().getImage(friend.photo50))
             }
             .scaleEffect(isAnimationOn ? 1.2 : 1)
-            .animation(.spring(response: 0.5, dampingFraction: 0.2, blendDuration: 0.8))
+            .animation(.spring(response: 0.5, dampingFraction: 0.2, blendDuration: 0.4))
             
             
             VStack(alignment: .leading) {
