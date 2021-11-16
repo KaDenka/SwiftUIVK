@@ -13,6 +13,7 @@ struct FriendCell: View {
     
     @Binding public var isPhotoButtonSelected: Bool
     @State private var isAnimationOn: Bool = false
+    // private let timer = Timer(timeInterval: 0.5, repeats: false)
     
     
     var body: some View {
@@ -23,6 +24,7 @@ struct FriendCell: View {
             }
             .scaleEffect(isAnimationOn ? 1.2 : 1)
             .animation(.spring(response: 0.5, dampingFraction: 0.2, blendDuration: 0.8))
+            
             
             VStack(alignment: .leading) {
                 Text("\(friend.firstName) \(friend.lastName)")
@@ -36,13 +38,15 @@ struct FriendCell: View {
             
             Button {
                 self.isAnimationOn = true
-                Timer(timeInterval: 0.5, repeats: false) { _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                   
                     self.isAnimationOn = false
                 }
-                Timer(timeInterval: 0.5, repeats: false) { _ in
-                    isPhotoButtonSelected = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.isPhotoButtonSelected = true
                 }
-   
+                
+
             } label: {
                 Text("Photo")
                     .font(.subheadline)
