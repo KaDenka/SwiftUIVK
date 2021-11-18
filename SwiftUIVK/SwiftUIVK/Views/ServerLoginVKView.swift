@@ -33,7 +33,7 @@ struct ServerLoginVKView: UIViewRepresentable {
         components.path = "/authorize"
         components.queryItems = [
             
-            URLQueryItem(name: "client_id", value: "7997012"),
+            URLQueryItem(name: "client_id", value: "8002682"),
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "scope", value: "friends,groups,photos,offline,wall"),
@@ -75,6 +75,7 @@ class WebViewNavigationDelegate: NSObject, WKNavigationDelegate {
         guard let authTokenResponse = authParams["access_token"], let authUserIdResponse = authParams["user_id"] else {return}
         
         SessionSingletone.shared.token = authTokenResponse
+        print("TOKEN TOKEN TOKEN: \(SessionSingletone.shared.token)")
         SessionSingletone.shared.userID = authUserIdResponse
         SessionSingletone.shared.logedIn = true
         

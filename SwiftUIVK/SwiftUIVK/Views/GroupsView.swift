@@ -14,8 +14,6 @@ struct GroupsView: View {
     
     private let APIRequest = VKAPIService()
     
-  
-    
     var body: some View {
         
         NavigationView {
@@ -24,7 +22,7 @@ struct GroupsView: View {
             }.navigationBarTitle(Text("User Groups"))
         }
         
-//MARK: Проверка работоспособности запросов
+        //MARK: Проверка работоспособности запросов
         
         .onAppear {
             APIRequest.groupsListRequest()
@@ -43,12 +41,39 @@ struct GroupsView_Previews: PreviewProvider {
 
 struct GroupCell: View {
     let group: Group
+    @State private var wasButtonPressed: Bool = false
+    private var imageState: String {
+        if wasButtonPressed {
+            return "heart.fill"
+        } else {
+            return "heart"
+        }
+    }
+     var wasLiked: Int {
+        if wasButtonPressed {
+            return 1
+        } else {
+            return 0
+        }
+    }
+     var totalLikes: Int = 100
+    
     var body: some View {
         HStack {
-            ImageBuilder {
-                Image(uiImage: ImageLoader().getImage(group.photo50))
+            VStack {
+                ImageBuilder {
+                    Image(uiImage: ImageLoader().getImage(group.photo50))
+                }
+                Text("\(totalLikes + wasLiked)")
+                    .font(.footnote)
+                    .foregroundColor(.red)
+                Button{
+                    wasButtonPressed.toggle()
+                }label: {
+                    Image(systemName: imageState)
+                        .foregroundColor(.red)
+                }
             }
-            
             VStack(alignment: .leading) {
                 Text("\(group.name)")
                     .font(.subheadline)
