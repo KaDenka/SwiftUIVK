@@ -24,7 +24,6 @@ struct PhotoItem: Codable {
     let urls: [Photo]
 
     enum CodingKeys: String, CodingKey {
-       
         case date
         case urls = "sizes"
     }

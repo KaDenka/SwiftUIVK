@@ -13,7 +13,6 @@ struct FriendCell: View {
     
     @Binding public var isPhotoButtonSelected: Bool
     @State private var isAnimationOn: Bool = false
-    // private let timer = Timer(timeInterval: 0.5, repeats: false)
     
     
     var body: some View {
